@@ -1,0 +1,10 @@
+METADATA TURF-T1 E1 A-TIV 
+SETTINGS: 
+ws=16 
+ol=15 
+sa=64 
+olsa=60 
+method=greyscale 
+time_lst=[60, 40, 20, 10] 
+time_interval=3.0 
+set_len=4 
