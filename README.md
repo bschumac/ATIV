@@ -2,6 +2,8 @@
 
 Welcome to Adaptive Thermal Image Velocimetry. This package is designed to give the user a quick access to run A-TIV and TIV algorithms. 
 
+Current Version: 0.1
+
 
 ## 1. Intorduction
 
@@ -15,24 +17,27 @@ For now please follow the instructions:
 
 0. clone this repository to your computer
 
-1. Install Py-EMD
+1. Install the following packages:
+
+- numpy
+- scipy 
+- progressbar2
+- joblib
+- Py-EMD
+(- collections)
+(- statistics)
+
+
+## 3. Use
+
+
+
+## 4. Algorithm
 
 
 
 
-
-
-## 3. Algorithm
-
-
-
-
-
-
-
-
-
-## X. References
+## 5. References
 
 Kaga, A. and Inoue, Y. and Yamaguchi (1992): Application of a Fast Algorithm for Pattern tracking on Airflow Measurements.
 

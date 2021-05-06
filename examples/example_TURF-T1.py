@@ -14,7 +14,6 @@ import os
 from functions.ATIV_fun import *
 from joblib import Parallel, delayed
 import multiprocessing
-import h5py
 import numpy as np
 
 
@@ -28,7 +27,7 @@ method = "greyscale"
 
 rec_freq = 2
 
-set_len = 20
+set_len = 4
 # times according to Inagaki 2013, here *2 due to the recording frequency
 time_lst = [60, 40, 20, 10]
 
@@ -65,16 +64,17 @@ uas_lst = []
 vas_lst = []
 for time in time_lst:
     
-    print("Creating ")
-    pertub = create_tst_perturbations_mm(tb,time) 
+    print("Creating Perturbations.. \n")
+    
+    perturb = create_tst_perturbations_mm(tb,time) 
     #pertub = create_tst_perturbations_spmm(tb,time)
     
     
     len_perturb = len(perturb)
     
     if set_len is not None:
-        len_pertub = set_len
-    out_lst = Parallel(n_jobs=-1)(delayed(runTIVparallel)(i, perturb=perturb) for i in range(0, len_perturb))
+        len_perturb = set_len
+    out_lst = Parallel(n_jobs=-1)(delayed(runTIVparallel)(i, perturb=perturb, ws=ws, ol=ol, sa=sa, olsa=olsa, method=method) for i in range(0, len_perturb))
     out_uv = np.array(out_lst)
     uas = out_uv[:,0,:,:]
     vas = out_uv[:,1,:,:]
@@ -86,5 +86,15 @@ for time in time_lst:
 
 # Note: The filling may be done in a seperate file/process
 
-uas_full = fill_weight(arr_lst=uas_lst, time_lst=timelst)
-vas_full = fill_weight(arr_lst=vas_lst, time_lst=timelst)
+uas_full = fill_weight(arr_lst=uas_lst, time_lst=time_lst)
+vas_full = fill_weight(arr_lst=vas_lst, time_lst=time_lst)
+
+# Example plot:
+
+perturb_0 = create_tst_perturbations_mm(tb,moving_mean_size=time_lst[0])
+
+# Artificial pattern created by people with moving metal plates 
+
+x, y = get_coordinates(image_size=perturb_0[0].shape, window_size=sa, overlap=olsa )    
+plt.imshow(perturb_0[2], vmin = -1, vmax=1, cmap="RdBu_r")
+plt.quiver(x,y,np.flipud(np.round(uas_full[2],2)),np.flipud(np.round(vas_full[2],2)))

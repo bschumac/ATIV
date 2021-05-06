@@ -1,7 +1,7 @@
 METADATA TURF-T1 E1 A-TIV 
 SETTINGS: 
-ws=16 
-ol=15 
+ws=32 
+ol=28 
 sa=64 
 olsa=60 
 method=greyscale 
