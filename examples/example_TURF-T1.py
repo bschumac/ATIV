@@ -13,7 +13,6 @@ import os
 ### IMPORTANT: Please make sure that the current working directory is set to this files' path!
 from functions.ATIV_fun import *
 from joblib import Parallel, delayed
-import multiprocessing
 import numpy as np
 
 
@@ -98,3 +97,4 @@ perturb_0 = create_tst_perturbations_mm(tb,moving_mean_size=time_lst[0])
 x, y = get_coordinates(image_size=perturb_0[0].shape, window_size=sa, overlap=olsa )    
 plt.imshow(perturb_0[2], vmin = -1, vmax=1, cmap="RdBu_r")
 plt.quiver(x,y,np.flipud(np.round(uas_full[2],2)),np.flipud(np.round(vas_full[2],2)))
+plt.close()
