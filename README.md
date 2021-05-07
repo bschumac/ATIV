@@ -64,18 +64,17 @@ set_len = 4
 A parameter to limit the amount of images calculated. In example 1 set to 4 to calculate the first 4 A-TIV outputs.
 
 
-
-
-
 ## 4. Algorithm
 
-
+The Algorithm partially uses Liberzon(2021) in the calculation of the window locations and the sub-pixel peaks, however the window correlation of this package differs substantially. Furthermore this package offers 3 different correlation methods compared to PIV implementations which use FFT based cross correlation.
 
 
 ## 5. References
 
+A. Inagaki, M. Kanda, S. Onomura, and H. Kumemura.  Thermal Image Velocimetry.Boundary-527Layer Meteorology, 149(1):1–18, 2013.  doi:  10.1007/s10546-013-9832-z.
+
 Kaga, A. and Inoue, Y. and Yamaguchi (1992): Application of a Fast Algorithm for Pattern tracking on Airflow Measurements.
 
-A. Inagaki, M. Kanda, S. Onomura, and H. Kumemura.  Thermal Image Velocimetry.Boundary-527Layer Meteorology, 149(1):1–18, 2013.  doi:  10.1007/s10546-013-9832-z.
+Alex Liberzon; Theo Käufer; Andreas Bauer; Peter Vennemann; Erich Zimmer. OpenPIV/openpiv-python: OpenPIV-Python v0.23.4. doi: https://doi.org/10.5281/zenodo.4409178
 
 B. Schumacher, M. Katurji, J. Zhang, I. Stiperski, and C. Dunker.  Evolution of micrometeorolog-562ical observations instantaneous spatial and temporal surface wind velocity from thermal image563processing.Geocomputation Conference 2019, 2019.  doi:  10.17608/k6.auckland.9869942.v1
