@@ -78,3 +78,7 @@ Kaga, A. and Inoue, Y. and Yamaguchi (1992): Application of a Fast Algorithm for
 Alex Liberzon; Theo Käufer; Andreas Bauer; Peter Vennemann; Erich Zimmer. OpenPIV/openpiv-python: OpenPIV-Python v0.23.4. doi: https://doi.org/10.5281/zenodo.4409178
 
 B. Schumacher, M. Katurji, J. Zhang, I. Stiperski, and C. Dunker.  Evolution of micrometeorolog-562ical observations instantaneous spatial and temporal surface wind velocity from thermal image563processing.Geocomputation Conference 2019, 2019.  doi:  10.17608/k6.auckland.9869942.v1
+
+## 6. How to cite
+
+Benjamin Schumacher (2021). Adaptive Thermal Image Velocimetry: ATIV v0.1. doi: https://doi.org/10.5281/ZENODO.4741550
