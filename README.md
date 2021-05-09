@@ -9,6 +9,8 @@ Current Version: 0.1
 
 Thermal Image Velocimetry is an optical flow algorithm, based on particle image velocimetry techniques designed to estimate spatial wind velocities from thermal video. The algorithm was initially described by Inagaki (2013) who used particle image velocimetry techniques of Kaga (1992) on thermal video of thermally responsive artificial surfaces to estimate spatial wind velocities. The technique was further investigated by Schumacher (2019) on artificial created patterns to test the user input settings. With this package we are presenting now the evolution of the TIV algorithm A-TIV which allows to retrieve spatial velocities over a wider range of surface types with less user-input needed. 
 
+The key of A-TIV is the use of the HHT signal decomposition to estimate the time interval between two frames which are correlated in the velocimetry algorithm. A second novelty is the use of a weighted average to merge the calculated TIV's into one A-TIV output.  
+
 ## 2. Setup
 
 At the current stage there is unfortunately no quick setup available. We are currently working on this to provide an updated version with a setup file.
@@ -23,9 +25,9 @@ For now please follow the instructions:
 - scipy 
 - progressbar2
 - joblib
-- Py-EMD
-- collections
-- statistics
+- Py-EMD -> use pip install EMD-signal, conda package PyEMD is currently outdated. 
+- (collections - usually included in python)
+- statistics - usually included in python)
 
 
 ## 3. Use
