@@ -1,0 +1,10 @@
+METADATA FIRE-2019P1 E1 A-TIV 
+SETTINGS: 
+ws=16 
+ol=15 
+sa=24 
+olsa=22 
+method=greyscale 
+time_lst=None 
+time_interval=1 
+set_len=4 

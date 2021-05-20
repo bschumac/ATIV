@@ -14,7 +14,7 @@ import os
 from functions.ATIV_fun import *
 from joblib import Parallel, delayed
 import numpy as np
-
+import matplotlib.pyplot as plt 
 
 experiment = "TURF-T1"
 experiment_num = 1
@@ -77,8 +77,8 @@ for time in time_lst:
     out_uv = np.array(out_lst)
     uas = out_uv[:,0,:,:]
     vas = out_uv[:,1,:,:]
-    np.save(outpath+"UAS_perturb_"+str(time)+".npy", uas)
-    np.save(outpath+"VAS_perturb_"+str(time)+".npy", vas)
+    np.save(outpath+"UAS_"+experiment+"_"+str(time)+".npy", uas)
+    np.save(outpath+"VAS_"+experiment+"_"+str(time)+".npy", vas)
     uas_lst.append(uas)
     vas_lst.append(vas)
 
