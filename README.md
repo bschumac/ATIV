@@ -27,7 +27,8 @@ For now please follow the instructions:
 - joblib
 - Py-EMD -> use pip install EMD-signal, conda package PyEMD is currently outdated. 
 - (collections - usually included in python)
-- statistics - usually included in python)
+- (statistics - usually included in python)
+- matplotlib (needed for plotting)
 
 
 ## 3. Use

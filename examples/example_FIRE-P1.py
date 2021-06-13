@@ -40,7 +40,7 @@ outpath = data_path+"/"
 tb = np.load(example_file)
 time_interval = 1
 
-f= open(outpath+"FIRE-TIV_metadata.txt","w+")
+f= open(outpath+"FIRE_P1-TIV_metadata.txt","w+")
 f.write("METADATA "+experiment+" E"+str(experiment_num)+" A-TIV \r\n") 
 f.write("SETTINGS: \r\n") 
 f.write("ws="+str(ws)+" \r\n")
