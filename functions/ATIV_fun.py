@@ -25,7 +25,7 @@ def fill_weight(arr_lst, time_lst):
 
 
 
-def create_tst_pertubations_mm(array, moving_mean_size = 60, showbar = True):
+def create_tst_perturbations_mm(array, moving_mean_size = 60, showbar = True):
     # creates a temporal moving mean around each layer in array   
     
     if moving_mean_size == "all":
@@ -61,7 +61,7 @@ def create_tst_pertubations_mm(array, moving_mean_size = 60, showbar = True):
 
 
 
-def create_tst_pertubations_spmm(array, moving_mean_size = 60, showbar = True):
+def create_tst_perturbations_spmm(array, moving_mean_size = 60, showbar = True):
      
     # creates a spatiotemporal moving mean around each layer in array   
     if moving_mean_size == "all":
