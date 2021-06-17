@@ -425,9 +425,9 @@ def remove_outliers(array, filter_size=5, sigma=1.5):
 
 
 
-def runTIVparallel(i, perturb, ws, ol, sa, olsa, method, rem_outliers = False, fiter_size=3, sigma=2, mean_analysis = False, std_analysis = False, std_threshold = 15):   
+def runTIVparallel(i, interval, perturb, ws, ol, sa, olsa, method, rem_outliers = False, fiter_size=3, sigma=2, mean_analysis = False, std_analysis = False, std_threshold = 15):   
 
-    u, v= window_correlation_tiv(frame_a=perturb[i], frame_b=perturb[i+1], window_size=ws, overlap_window=ol, overlap_search_area=olsa, 
+    u, v= window_correlation_tiv(frame_a=perturb[i], frame_b=perturb[i+interval], window_size=ws, overlap_window=ol, overlap_search_area=olsa, 
                                  search_area_size_x=sa, corr_method=method, mean_analysis = mean_analysis, std_analysis = std_analysis, std_threshold = std_threshold)
          
     

@@ -39,7 +39,7 @@ example_file = os.path.join(data_path, "TURF-T1_Tb_stab.npy")
 outpath = data_path+"/"
 
 tb = np.load(example_file)
-ret_lst = randomize_find_interval(data = tb,rec_freq = 2)
+ret_lst = randomize_find_interval(data = tb,rec_freq = rec_freq)
 time_interval = ret_lst[0]
 
 f= open(outpath+"ATIV_metadata.txt","w+")
@@ -73,7 +73,7 @@ for time in time_lst:
     
     if set_len is not None:
         len_perturb = set_len
-    out_lst = Parallel(n_jobs=-1)(delayed(runTIVparallel)(i, perturb=perturb, ws=ws, ol=ol, sa=sa, olsa=olsa, method=method) for i in range(0, len_perturb))
+    out_lst = Parallel(n_jobs=-1)(delayed(runTIVparallel)(i, interval=time_interval, perturb=perturb, ws=ws, ol=ol, sa=sa, olsa=olsa, method=method) for i in range(0, len_perturb))
     out_uv = np.array(out_lst)
     uas = out_uv[:,0,:,:]
     vas = out_uv[:,1,:,:]
