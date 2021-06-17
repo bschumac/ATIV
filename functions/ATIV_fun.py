@@ -25,27 +25,18 @@ def fill_weight(arr_lst, time_lst):
 
 
 
-def create_tst_perturbations_mm(array, moving_mean_size = 60): 
-    """
-    Subtracts a temporal moving mean of each pixel in array (Reynolds averaging). See Christen 2012 for details.    
+def create_tst_pertubations_mm(array, moving_mean_size = 60, showbar = True):
+    # creates a temporal moving mean around each layer in array   
     
-    Parameters
-    ----------
-    array: numpy 3D array
-        3D array of ideally - stabilized brightness temperature video from an overhead drone flight or a corrected oblique pole acquisition.
-        x,y is the image
-        z is the time dimension
-    moving_mean_size: int
-        The size of the moving mean to be subtracted in time.
+    if moving_mean_size == "all":
+        moving_mean_size = len(array)
+        
     
-    
-    
-    """
-
     resultarr = np.zeros(np.shape(array))
-    bar = progressbar.ProgressBar(maxval=len(array), widgets=[progressbar.Bar('=', '[', ']'), ' ', progressbar.Percentage()]) 
-    bar.start()
-    bar_iterator = 0
+    if showbar:
+        bar = progressbar.ProgressBar(maxval=len(array), widgets=[progressbar.Bar('=', '[', ']'), ' ', progressbar.Percentage()]) 
+        bar.start()
+        bar_iterator = 0
     for i in range(0,len(array)):
         # moving mean array = actarray:
         if i == 0:
@@ -60,37 +51,28 @@ def create_tst_perturbations_mm(array, moving_mean_size = 60):
             actarray = array[len(array)-(2*moving_mean_size)-1:len(array)]
         
         resultarr[i] = array[i]-np.mean(actarray, axis=0)
-        bar.update(bar_iterator+1)
-        bar_iterator += 1
-                
-    bar.finish()
+        if showbar:
+            bar.update(bar_iterator+1)
+            bar_iterator += 1
+    if showbar:            
+        bar.finish()
     return(resultarr)
 
 
 
 
-
-def create_tst_perturbations_spmm(array, moving_mean_size = 60):
-    """
-    Subtracts a spatiotemporal moving mean around each layer in array (Reynolds averaging). See Christen 2012 for details.    
-    
-    Parameters
-    ----------
-    array: numpy 3D array
-        3D array of ideally - stabilized brightness temperature video from an overhead drone flight or a corrected oblique pole acquisition.
-        x,y is the image
-        z is the time dimension
-    moving_mean_size: int
-        The size of the moving mean to be subtracted in time.
-    
-    
-    
-    """
+def create_tst_pertubations_spmm(array, moving_mean_size = 60, showbar = True):
+     
+    # creates a spatiotemporal moving mean around each layer in array   
+    if moving_mean_size == "all":
+        moving_mean_size = len(array)
+        
     resultarr = np.zeros(np.shape(array))
-    bar = progressbar.ProgressBar(maxval=len(array), widgets=[progressbar.Bar('=', '[', ']'), ' ', progressbar.Percentage()]) 
-    bar.start()
-    bar_iterator = 0
-    arr_spmean = np.mean(array, axis=(1,2))
+    if showbar:
+        bar = progressbar.ProgressBar(maxval=len(array), widgets=[progressbar.Bar('=', '[', ']'), ' ', progressbar.Percentage()]) 
+        bar.start()
+        bar_iterator = 0
+    arr_spmean = np.nanmean(array, axis=(1,2))
     arr_spmean = arr_spmean[:,np.newaxis,np.newaxis]
     arr_spperturb = np.ones(array.shape, dtype="int")
     arr_spperturb = arr_spperturb*arr_spmean
@@ -108,13 +90,13 @@ def create_tst_perturbations_spmm(array, moving_mean_size = 60):
         if i == len(array)-1:
             actarray = array[len(array)-(2*moving_mean_size)-1:len(array)]
         
-        resultarr[i] = array[i]-np.mean(actarray, axis=0)
-        bar.update(bar_iterator+1)
-        bar_iterator += 1
-                
-    bar.finish()
+        resultarr[i] = array[i]-np.nanmean(actarray, axis=0)
+        if showbar:
+            bar.update(bar_iterator+1)
+            bar_iterator += 1
+    if showbar:            
+        bar.finish()
     return(resultarr)
-
 
 
 

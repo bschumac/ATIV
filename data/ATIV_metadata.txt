@@ -3,8 +3,8 @@ SETTINGS:
 ws=32 
 ol=28 
 sa=64 
-olsa=60 
+olsa=63 
 method=greyscale 
 time_lst=[60] 
 time_interval=3.0 
-set_len=12 
+set_len=4 
